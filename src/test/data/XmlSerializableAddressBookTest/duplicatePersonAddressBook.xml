@@ -2,6 +2,7 @@
 <addressbook>
 
     <persons>
+        <id>1</id>
         <name>Alice Pauline</name>
         <phone>94351253</phone>
         <email>alice@example.com</email>
@@ -12,6 +13,7 @@
 
     <!-- Client with same identity as Alice Pauline -->
     <persons>
+        <id>2</id>
         <name>Alice Pauline</name>
         <phone>94351253</phone>
         <email>pauline@example.com</email>

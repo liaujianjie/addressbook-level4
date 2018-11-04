@@ -104,7 +104,7 @@ public class ServiceProviderBuilder {
     }
 
     public Contact build() {
-        return new Vendor(name, phone, email, address, tags, services, id);
+        return new Vendor(id, name, phone, email, address, tags, services);
     }
 
 }

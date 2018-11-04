@@ -43,6 +43,7 @@ public class XmlUtilTest {
 
     private static final String INVALID_PHONE = "9482asf424";
 
+    private static final int VALID_ID = 1;
     private static final String VALID_NAME = "Hans Muster";
     private static final String VALID_PHONE = "9482424";
     private static final String VALID_EMAIL = "hans@example";
@@ -104,8 +105,8 @@ public class XmlUtilTest {
     public void xmlAdaptedPersonFromFile_fileWithMissingPersonField_validResult() throws Exception {
         XmlAdaptedContact actualPerson = XmlUtil.getDataFromFile(
                 MISSING_PERSON_FIELD_FILE, XmlAdaptedContactWithRootElement.class);
-        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(
-                null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
+        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(VALID_ID, null, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
         assertEquals(expectedPerson, actualPerson);
     }
 
@@ -113,8 +114,8 @@ public class XmlUtilTest {
     public void xmlAdaptedPersonFromFile_fileWithInvalidPersonField_validResult() throws Exception {
         XmlAdaptedContact actualPerson = XmlUtil.getDataFromFile(
                 INVALID_PERSON_FIELD_FILE, XmlAdaptedContactWithRootElement.class);
-        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(
-                VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
+        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(VALID_ID, VALID_NAME, INVALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
         assertEquals(expectedPerson, actualPerson);
     }
 
@@ -122,8 +123,8 @@ public class XmlUtilTest {
     public void xmlAdaptedPersonFromFile_fileWithValidPerson_validResult() throws Exception {
         XmlAdaptedContact actualPerson = XmlUtil.getDataFromFile(
                 VALID_PERSON_FILE, XmlAdaptedContactWithRootElement.class);
-        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(
-                VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
+        XmlAdaptedContact expectedPerson = new XmlAdaptedContact(VALID_ID, VALID_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_CONTACT_TYPE);
         assertEquals(expectedPerson, actualPerson);
     }
 

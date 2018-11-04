@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addressbook>
     <persons>
+        <id>1</id>
         <name>Hans Muster</name>
         <phone isPrivate="false">9482424</phone>
         <email isPrivate="false">hans@example.com</email>
@@ -8,6 +9,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>2</id>
         <name>Ruth Mueller</name>
         <phone isPrivate="false">87249245</phone>
         <email isPrivate="false">ruth@example.com</email>
@@ -15,6 +17,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>3</id>
         <name>Heinz Kurz</name>
         <phone isPrivate="false">95352563</phone>
         <email isPrivate="false">heinz@example.com</email>
@@ -22,6 +25,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>4</id>
         <name>Cornelia Meier</name>
         <phone isPrivate="false">87652533</phone>
         <email isPrivate="false">cornelia@example.com</email>
@@ -29,6 +33,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>5</id>
         <name>Werner Meyer</name>
         <phone isPrivate="false">9482224</phone>
         <email isPrivate="false">werner@example.com</email>
@@ -36,6 +41,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>6</id>
         <name>Lydia Kunz</name>
         <phone isPrivate="false">9482427</phone>
         <email isPrivate="false">lydia@example.com</email>
@@ -43,6 +49,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>7</id>
         <name>Anna Best</name>
         <phone isPrivate="false">9482442</phone>
         <email isPrivate="false">anna@example.com</email>
@@ -50,6 +57,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>8</id>
         <name>Stefan Meier</name>
         <phone isPrivate="false">8482424</phone>
         <email isPrivate="false">stefan@example.com</email>
@@ -57,6 +65,7 @@
         <type isPrivate="false">CLIENT</type>
     </persons>
     <persons>
+        <id>9</id>
         <name>Martin Mueller</name>
         <phone isPrivate="false">8482131</phone>
         <email isPrivate="false">hans@example.com</email>

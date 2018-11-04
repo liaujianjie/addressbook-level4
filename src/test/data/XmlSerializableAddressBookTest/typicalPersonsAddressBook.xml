@@ -2,6 +2,7 @@
 <!-- AddressBook save file which contains the same Client values as in TypicalPersons#getTypicalAddressBook() -->
 <addressbook>
     <persons>
+        <id>1</id>
         <name>Alice Pauline</name>
         <phone>94351253</phone>
         <email>alice@example.com</email>
@@ -10,6 +11,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>2</id>
         <name>Benson Meier</name>
         <phone>98765432</phone>
         <email>johnd@example.com</email>
@@ -19,6 +21,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>3</id>
         <name>Carl Kurz</name>
         <phone>95352563</phone>
         <email>heinz@example.com</email>
@@ -26,6 +29,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>4</id>
         <name>Daniel Meier</name>
         <phone>87652533</phone>
         <email>cornelia@example.com</email>
@@ -34,6 +38,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>5</id>
         <name>Elle Meyer</name>
         <phone>9482224</phone>
         <email>werner@example.com</email>
@@ -41,6 +46,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>6</id>
         <name>Fiona Kunz</name>
         <phone>9482427</phone>
         <email>lydia@example.com</email>
@@ -48,6 +54,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>7</id>
         <name>George Best</name>
         <phone>9482442</phone>
         <email>anna@example.com</email>
@@ -55,6 +62,7 @@
         <type>CLIENT</type>
     </persons>
     <persons>
+        <id>8</id>
         <name>Dominic Dong</name>
         <phone>94311253</phone>
         <email>dominicdong@example.com</email>
@@ -63,6 +71,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>9</id>
         <name>Ng Ee Hooi</name>
         <phone>98762432</phone>
         <email>eehooid@example.com</email>
@@ -72,6 +81,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>10</id>
         <name>Gan Chin Yao</name>
         <phone>18762432</phone>
         <email>gan@example.com</email>
@@ -79,6 +89,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>11</id>
         <name>Liau Jian Jie</name>
         <phone>93762432</phone>
         <email>jj@example.com</email>
@@ -86,6 +97,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>12</id>
         <name>Lim Wai Lun</name>
         <phone>98761432</phone>
         <email>wailunoob@example.com</email>
@@ -93,6 +105,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>13</id>
         <name>Dong SiJi</name>
         <phone>91232432</phone>
         <email>dong.siji@example.com</email>
@@ -100,6 +113,7 @@
         <type>VENDOR</type>
     </persons>
     <persons>
+        <id>14</id>
         <name>Chino</name>
         <phone>98711132</phone>
         <email>chinoyaobi@example.com</email>

@@ -34,8 +34,8 @@ public class Client extends Contact {
         this.id = clientId++;
     }
 
-    public Client(Name name, Phone phone, Email email,
-                  Address address, Set<Tag> tags, Map<String, Service> services, int id) {
+    public Client(int id, Name name, Phone phone, Email email, Address address, Set<Tag> tags, Map<String, Service>
+            services) {
         super(name, phone, email, address, tags, services);
         this.id = id;
     }

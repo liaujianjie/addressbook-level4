@@ -113,7 +113,7 @@ public class ClientBuilder {
     }
 
     public Contact build() {
-        return new Client(name, phone, email, address, tags, services, id);
+        return new Client(id, name, phone, email, address, tags, services);
     }
 
 }

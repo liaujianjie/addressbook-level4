@@ -30,14 +30,13 @@ public class Vendor extends Contact {
         this.id = vendorId++;
     }
 
-    public Vendor(Name name, Phone phone, Email email, Address address, Set<Tag> tags,
-                  Map<String, Service> service) {
+    public Vendor(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Map<String, Service> service) {
         super(name, phone, email, address, tags, service);
         this.id = vendorId++;
     }
 
-    public Vendor(Name name, Phone phone, Email email, Address address, Set<Tag> tags,
-                  Map<String, Service> services, int id) {
+    public Vendor(int id, Name name, Phone phone, Email email, Address address, Set<Tag> tags,
+                  Map<String, Service> services) {
         super(name, phone, email, address, tags, services);
         this.id = id;
     }

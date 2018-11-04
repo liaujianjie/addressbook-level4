@@ -140,11 +140,11 @@ public class UpdateCommand extends Command {
 
         switch (contactType) {
         case CLIENT:
-            return new Client(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
-                    updatedServices, id);
+            return new Client(id, updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
+                    updatedServices);
         case VENDOR:
-            return new Vendor(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
-                    updatedServices, id);
+            return new Vendor(id, updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
+                    updatedServices);
         default:
             // should nvr come in here
             throw new RuntimeException("No such Contact Type!");

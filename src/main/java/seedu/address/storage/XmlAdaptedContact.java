@@ -30,6 +30,8 @@ public class XmlAdaptedContact {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Client's %s field is missing!";
 
     @XmlElement(required = true)
+    private int id = -1;
+    @XmlElement(required = true)
     private String name;
     @XmlElement(required = true)
     private String phone;
@@ -53,8 +55,9 @@ public class XmlAdaptedContact {
     /**
      * Constructs an {@code XmlAdaptedContact} with the given client details.
      */
-    public XmlAdaptedContact(String name, String phone, String email, String address, List<XmlAdaptedTag> tagged,
-                             List<XmlAdaptedService> services, ContactType type) {
+    public XmlAdaptedContact(int id, String name, String phone, String email, String address, List<XmlAdaptedTag>
+            tagged, List<XmlAdaptedService> services, ContactType type) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -71,8 +74,9 @@ public class XmlAdaptedContact {
     /**
      * Constructs an {@code XmlAdaptedContact} with the given client details.
      */
-    public XmlAdaptedContact(String name, String phone, String email, String address, List<XmlAdaptedTag> tagged,
-                             ContactType type) {
+    public XmlAdaptedContact(int id, String name, String phone, String email, String address, List<XmlAdaptedTag>
+            tagged, ContactType type) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -89,6 +93,7 @@ public class XmlAdaptedContact {
      * @param source future changes to this will not affect the created XmlAdaptedContact
      */
     public XmlAdaptedContact(Contact source) {
+        id = source.getId();
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -116,6 +121,10 @@ public class XmlAdaptedContact {
         }
         for (XmlAdaptedService service : services) {
             personServices.add(service.toModelType());
+        }
+
+        if (id == -1) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "identifier"));
         }
 
         if (name == null) {
@@ -160,14 +169,14 @@ public class XmlAdaptedContact {
         }
 
         if (type == null) {
-            throw new IllegalValueException("Contact type must be non-null.");
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "contact type"));
         }
 
         if (type.equals(ContactType.CLIENT)) {
-            return new Client(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelServices);
+            return new Client(id, modelName, modelPhone, modelEmail, modelAddress, modelTags, modelServices);
         }
         if (type.equals(ContactType.VENDOR)) {
-            return new Vendor(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelServices);
+            return new Vendor(id, modelName, modelPhone, modelEmail, modelAddress, modelTags, modelServices);
         }
 
         throw new IllegalValueException("Illegal contact type. It can only be a client or a service provider.");
@@ -184,7 +193,8 @@ public class XmlAdaptedContact {
         }
 
         XmlAdaptedContact otherPerson = (XmlAdaptedContact) other;
-        return Objects.equals(name, otherPerson.name)
+        return id == otherPerson.id
+                && Objects.equals(name, otherPerson.name)
                 && Objects.equals(phone, otherPerson.phone)
                 && Objects.equals(email, otherPerson.email)
                 && Objects.equals(address, otherPerson.address)
