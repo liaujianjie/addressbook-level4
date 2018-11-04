@@ -110,6 +110,7 @@ public abstract class Contact {
 
     /**
      * Concatenates the contact data into a URL String.
+     *
      * @return URL of contact data.
      */
     public String getUrlContactData() {
@@ -143,5 +144,13 @@ public abstract class Contact {
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
+    }
+
+    /**
+     * Generates a {@code String} representation in the format "{@code type#id}".
+     * @return The unique string.
+     */
+    public String toUniqueString() {
+        return getType() + "#" + getId();
     }
 }

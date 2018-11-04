@@ -1,14 +1,19 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.model.ContactType.CLIENT;
+import static seedu.address.model.ContactType.VENDOR;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.ContactType;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Name;
@@ -20,7 +25,16 @@ import seedu.address.model.tag.Tag;
  */
 public class ParserUtil {
 
-    public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    private static final String MESSAGE_INVALID_CONTACT = "Invalid contact entity: %s";
+    private static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    private static final String MESSAGE_INVALID_CONTACT_TYPE = "Invalid contact type: %s";
+
+    public static final String CONTACT_TYPE = "TYPE";
+    public static final String CONTACT_IDENTIFIER = "IDENTIFIER";
+
+    private static final Pattern CONTACT_FORMAT =
+            Pattern.compile("(?<" + CONTACT_TYPE + ">[a-zA-Z]+)#(?<" + CONTACT_IDENTIFIER + ">[\\d\\w-]*)");
+
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -120,5 +134,38 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code string} into a {@code Matcher} for extraction of contact type and identifier.
+     * @param string The string to parse.
+     * @return The matcher.
+     * @throws ParseException Throws if there was an exception when parsing.
+     */
+    public static Matcher parseContact(String string) throws ParseException {
+        Matcher matcher = CONTACT_FORMAT.matcher(string.trim());
+        if (!matcher.matches()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_CONTACT, string));
+        }
+
+        return matcher;
+    }
+
+
+    /**
+     * Parses a {@code ContactType} from a {@code string}.
+     *
+     * @param string The string to parse.
+     * @return The {@code ContactType}.
+     */
+    public static ContactType parseContactType(String string) throws ParseException {
+        if (string.equals(CLIENT.toString())) {
+            return CLIENT;
+        }
+        if (string.equals(VENDOR.toString())) {
+            return VENDOR;
+        }
+
+        throw new ParseException(String.format(MESSAGE_INVALID_CONTACT_TYPE, string));
     }
 }

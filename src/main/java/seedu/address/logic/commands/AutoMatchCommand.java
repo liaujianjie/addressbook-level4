@@ -60,8 +60,8 @@ public class AutoMatchCommand extends Command {
                     .getAddressBook()
                     .getContactList()
                     .stream()
-                    .filter(c -> (contactType.equals("client") && c instanceof Client)
-                            || (contactType.equals("vendor") && c instanceof Vendor))
+                    .filter(c -> (contactType.equals(ContactType.CLIENT) && c instanceof Client)
+                            || (contactType.equals(ContactType.VENDOR) && c instanceof Vendor))
                     .filter(c -> c.getId() == contactId)
                     .findFirst()
                     .get();

@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddServiceCommand;
+import seedu.address.logic.commands.AssignCommand;
 import seedu.address.logic.commands.AutoMatchCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -107,7 +108,6 @@ public class AddressBookParser {
 
         final String commandWord = getCommandWord(firstWord, secondWord);
 
-        System.out.println(arguments);
         switch (commandWord) {
 
         case RegisterAccountCommand.COMMAND_WORD:
@@ -166,6 +166,9 @@ public class AddressBookParser {
         case AutoMatchCommand.COMMAND_WORD_CLIENT:
         case AutoMatchCommand.COMMAND_WORD_VENDOR:
             return new AutoMatchCommandParser().parse(firstWord + identifier);
+
+        case AssignCommand.COMMAND_WORD_CLIENT:
+            return new AssignCommand(ContactType.CLIENT, identifier.substring(1)).parse(arguments);
 
         case AddCommand.COMMAND_WORD_VENDOR:
             return new AddCommandParser(ContactType.VENDOR).parse(arguments);

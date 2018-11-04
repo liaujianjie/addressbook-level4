@@ -5,9 +5,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Defines the service types
@@ -33,6 +36,8 @@ public class Service {
 
     public final String serviceName;
     public final BigDecimal serviceCost;
+
+    private Set<Contact> assignees = new HashSet<>();
 
     // Id list of clients / service providers for service providers / clients respectively.
     private List<Integer> idList;
@@ -64,12 +69,19 @@ public class Service {
         return serviceCost;
     }
 
+    public void addAssignee(Contact assignee) {
+        this.assignees.add(assignee);
+    }
+
+    public Set<Contact> getAssignees() { return assignees; }
+
     /**
      * Returns the URL description for the service.
      * @return string describing service in URL format.
      */
     public String getUrlDescription() {
-        return serviceName + ":" + serviceCost.toPlainString();
+        return serviceName + ":" + serviceCost.toPlainString() + ":" + String.join(":", assignees.stream()
+                .map(a -> a.toUniqueString() + " - " + a.getName()).collect(Collectors.toList()));
     }
 
     public List<Integer> getIdList() {
@@ -108,7 +120,9 @@ public class Service {
 
     @Override
     public String toString() {
-        return serviceName + " $" + serviceCost.toPlainString();
+        String assigneesString = String.join("\n* ", assignees.stream().map(a ->
+                a.toUniqueString() + " - " + a.getName()).collect(Collectors.toList()));
+        return String.format("%s $%s %s", serviceName, serviceCost.toPlainString(), assigneesString);
     }
 
     @Override
