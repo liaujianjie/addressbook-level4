@@ -39,6 +39,9 @@ public class Vendor extends Contact {
                   Map<String, Service> services) {
         super(name, phone, email, address, tags, services);
         this.id = id;
+        if (id > vendorId) {
+            setVendorId(id);
+        }
     }
 
     @Override
@@ -48,6 +51,10 @@ public class Vendor extends Contact {
 
     public int getId() {
         return id;
+    }
+
+    public static void setVendorId(int id) {
+        vendorId = id;
     }
 
     /**

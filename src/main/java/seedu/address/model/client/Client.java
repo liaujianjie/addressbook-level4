@@ -38,10 +38,17 @@ public class Client extends Contact {
             services) {
         super(name, phone, email, address, tags, services);
         this.id = id;
+        if (id > clientId) {
+            setClientId(id);
+        }
     }
 
     public static void resetClientId() {
         clientId = 1;
+    }
+
+    public static void setClientId(int id) {
+        clientId = id;
     }
 
     @Override
